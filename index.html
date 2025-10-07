@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合同会社HIGHER - キャリア支援・ライフサイクルショップ・不動産仲介</title>
+    <meta name="description" content="合同会社HIGHERは、キャリア支援事業、ライフサイクルショップ運営、不動産仲介の3つの事業を通じて、お客様の人生をより豊かにサポートいたします。">
+    <meta name="keywords" content="HIGHER,キャリア支援,転職,ライフサイクルショップ,不動産仲介,合同会社">
+    
+    <!-- OGP設定 -->
+    <meta property="og:title" content="合同会社HIGHER">
+    <meta property="og:description" content="キャリア支援・ライフサイクルショップ・不動産仲介を通じて、お客様の人生をサポート">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://page.gensparksite.com/v1/base64_upload/a1b0a663dc283fc219ea2638aad28ffe">
+    
+    <!-- ファビコン -->
+    <link rel="icon" type="image/x-icon" href="https://page.gensparksite.com/v1/base64_upload/a1b0a663dc283fc219ea2638aad28ffe">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* 基本設定 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        /* スタイリッシュなローディングアニメーション */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+        
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.6s ease;
+        }
+        
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* ヘッダー（スタイリッシュなグラスモーフィズム効果） */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+        
+        /* ナビゲーション */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-menu a:hover {
+            color: #2c5aa0;
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background-color: #2c5aa0;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        
+        /* メインビジュアル（AI生成背景＋動的スライダー） */
+        .hero {
+            position: relative;
+            padding: 120px 20px;
+            text-align: center;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* 背景スライダー */
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+        
+        .hero-slide.active {
+            opacity: 1;
+        }
+        
+        .hero-slide:nth-child(1) {
+            background-image: url('https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/d89b3501-ccb5-4b43-b705-87546aec081c');
+        }
+        
+        .hero-slide:nth-child(2) {
+            background-image: url('https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/b801b65c-03c8-45e2-bf80-366418c12369');
+        }
+        
+        .hero-slide:nth-child(3) {
+            background-image: url('https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/293cdd16-5d88-48b5-8cc0-d88635e0287b');
+        }
+        
+        /* オーバーレイ */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+            z-index: 2;
+        }
+        
+        /* パーティクル効果 */
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255,255,255,0.2) 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.15) 1px, transparent 1px);
+            background-size: 80px 80px, 60px 60px;
+            animation: twinkle 8s linear infinite;
+            z-index: 3;
+        }
+        
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: translateY(0); }
+            50% { opacity: 1; transform: translateY(-10px); }
+            100% { opacity: 0.3; transform: translateY(0); }
+        }
+        
+        .hero-container {
+            position: relative;
+            z-index: 4;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* スライダーインジケーター */
+        .hero-indicators {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 5;
+        }
+        
+        .hero-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-indicator.active {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.2);
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            animation: slideInUp 1s ease-out;
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero .subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            font-weight: 400;
+            animation: slideInUp 1s ease-out 0.2s both;
+        }
+        
+        .hero .description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            animation: slideInUp 1s ease-out 0.4s both;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 18px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            box-shadow: 0 8px 25px rgba(238, 90, 36, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(238, 90, 36, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
+        }
+        
+        /* サービス紹介（パララックス効果付き） */
+        .services {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .services::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23667eea" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            animation: drift 20s linear infinite;
+            z-index: 1;
+        }
+        
+        @keyframes drift {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-50px, -50px) rotate(360deg); }
+        }
+        
+        .services-container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+        
+        .service-card:hover .service-image::after {
+            opacity: 1;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            transition: left 0.5s ease;
+        }
+        
+        .service-card:hover::before {
+            left: 0;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            font-size: 4rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+            display: block;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotateY(360deg) rotateX(15deg);
+            text-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        /* 3Dカードエフェクト */
+        .service-card {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02) rotateX(5deg);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .service-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 25px;
+        }
+        
+        .service-features li {
+            color: #777;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            color: #2c5aa0;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* 会社概要 */
+        .about {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+        
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-text {
+            padding: 20px;
+        }
+        
+        .about-text h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .company-info {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        
+        .company-info h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .info-table {
+            width: 100%;
+        }
+        
+        .info-table tr {
+            border-bottom: 1px solid #eee;
+        }
+        
+        .info-table th {
+            text-align: left;
+            padding: 15px 10px;
+            font-weight: 500;
+            color: #333;
+            width: 120px;
+            background: #f8f9fa;
+        }
+        
+        .info-table td {
+            padding: 15px 10px;
+            color: #666;
+        }
+        
+        /* お問い合わせ（グラデーション＋パーティクル効果） */
+        .contact {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px, 30px 30px;
+            animation: twinkle 4s linear infinite;
+        }
+        
+        @keyframes twinkle {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+        
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .contact h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-item {
+            background: rgba(255,255,255,0.15);
+            padding: 40px 25px;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.25);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .contact-item i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        
+        .contact-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .contact-item p {
+            margin: 0;
+            font-size: 1rem;
+        }
+        
+        /* フッター */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 20px 20px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #ffffff;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+            color: #ccc;
+        }
+        
+        /* レスポンシブデザイン */
+        /* タッチデバイス用の最適化 */
+        @media (hover: none) {
+            .service-card:hover {
+                transform: none;
+            }
+            
+            .service-card:active {
+                transform: scale(0.95);
+            }
+            
+            .btn:hover {
+                transform: none;
+            }
+            
+            .btn:active {
+                transform: scale(0.95);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 70vh;
+                padding: 80px 20px;
+            }
+            
+            .hero-particles {
+                display: none; /* モバイルではパフォーマンス重視 */
+            }
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                flex-direction: column;
+                padding: 20px 0;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+            
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 80%;
+                max-width: 300px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .services,
+            .about,
+            .contact {
+                padding: 60px 20px;
+            }
+            
+            .service-card {
+                padding: 30px 20px;
+            }
+            
+            .company-info {
+                padding: 30px 20px;
+            }
+            
+            .info-table th {
+                width: 100px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <div class="header-container">
+            <img src="https://page.gensparksite.com/v1/base64_upload/a1b0a663dc283fc219ea2638aad28ffe" alt="合同会社HIGHER" class="logo">
+            
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#home">ホーム</a></li>
+                    <li><a href="#services">サービス</a></li>
+                    <li><a href="#about">会社概要</a></li>
+                    <li><a href="#contact">お問い合わせ</a></li>
+                </ul>
+                
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- メインビジュアル -->
+    <section id="home" class="hero">
+        <!-- 背景スライダー -->
+        <div class="hero-background">
+            <div class="hero-slide active"></div>
+            <div class="hero-slide"></div>
+            <div class="hero-slide"></div>
+        </div>
+        
+        <!-- パーティクル効果 -->
+        <div class="hero-particles"></div>
+        
+        <div class="hero-container">
+            <h1 class="fade-in">合同会社HIGHER</h1>
+            <p class="subtitle fade-in">あなたの人生をより高い次元へ</p>
+            <p class="description fade-in">
+                私たちは、キャリア支援・ライフサイクルショップ運営・不動産仲介の3つの事業を通じて、<br>
+                お客様の人生をより豊かで充実したものにするお手伝いをいたします。<br>
+                一人ひとりの夢と目標の実現を全力でサポートします。
+            </p>
+            
+            <div class="cta-buttons">
+                <a href="#services" class="btn btn-primary">サービス詳細</a>
+                <a href="#contact" class="btn btn-secondary">お問い合わせ</a>
+            </div>
+        </div>
+        
+        <!-- スライダーインジケーター -->
+        <div class="hero-indicators">
+            <div class="hero-indicator active" data-slide="0"></div>
+            <div class="hero-indicator" data-slide="1"></div>
+            <div class="hero-indicator" data-slide="2"></div>
+        </div>
+    </section>
+    
+    <!-- サービス紹介 -->
+    <section id="services" class="services">
+        <div class="services-container">
+            <h2 class="section-title">私たちのサービス</h2>
+            <p class="section-subtitle">
+                3つの専門分野で、お客様の人生のあらゆるステージをトータルサポートいたします
+            </p>
+            
+            <div class="services-grid">
+                <!-- キャリア支援 -->
+                <div class="service-card fade-in">
+                    <div class="service-image" style="background-image: url('https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/322bf0f5-2345-49d6-bded-22696d268821')"></div>
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>キャリア支援事業</h3>
+                    <p>転職・就職から起業まで、あなたのキャリアアップを全面的にサポートします。</p>
+                    
+                    <ul class="service-features">
+                        <li>転職・就職コンサルティング</li>
+                        <li>履歴書・職務経歴書添削</li>
+                        <li>面接対策・模擬面接</li>
+                        <li>スキルアップ研修</li>
+                        <li>起業・独立支援</li>
+                    </ul>
+                    
+                    <a href="#contact" class="btn btn-primary">詳細を見る</a>
+                </div>
+                
+                <!-- ライフサイクルショップ -->
+                <div class="service-card fade-in">
+                    <div class="service-image" style="background-image: url('https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/79c933fa-fc69-4cc2-b463-fed89b32051f')"></div>
+                    <div class="service-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>ライフサイクルショップ運営</h3>
+                    <p>持続可能な暮らしを提案する、環境に優しいライフサイクルショップを運営しています。</p>
+                    
+                    <ul class="service-features">
+                        <li>リユース・リサイクル商品</li>
+                        <li>エコフレンドリー商品</li>
+                        <li>ライフスタイル提案</li>
+                        <li>オンライン・オフライン販売</li>
+                        <li>商品企画・開発</li>
+                    </ul>
+                    
+                    <a href="#contact" class="btn btn-primary">ショップ訪問</a>
+                </div>
+                
+                <!-- 不動産仲介 -->
+                <div class="service-card fade-in">
+                    <div class="service-image" style="background-image: url('https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/699e8d43-0349-47e8-b02e-b3af790f5d4d')"></div>
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>不動産仲介事業</h3>
+                    <p>住まい探しから投資用不動産まで、不動産に関するあらゆるニーズにお応えします。</p>
+                    
+                    <ul class="service-features">
+                        <li>売買仲介（住宅・土地）</li>
+                        <li>賃貸仲介（居住用・事業用）</li>
+                        <li>投資用不動産コンサル</li>
+                        <li>不動産査定・評価</li>
+                        <li>住宅ローン相談</li>
+                    </ul>
+                    
+                    <a href="#contact" class="btn btn-primary">相談する</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 会社概要 -->
+    <section id="about" class="about">
+        <div class="about-container">
+            <h2 class="section-title">会社概要</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>私たちのミッション</h2>
+                    <p>
+                        合同会社HIGHERは、「人生をより高い次元へ導く」という理念のもと、
+                        キャリア支援・ライフサイクルショップ運営・不動産仲介の3つの事業を展開しています。
+                    </p>
+                    <p>
+                        私たちは、お客様一人ひとりの人生に寄り添い、
+                        それぞれのステージで最適なサービスを提供することで、
+                        より豊かで充実した人生の実現をサポートします。
+                    </p>
+                    <p>
+                        専門知識と豊富な経験を持つスタッフが、
+                        お客様の夢や目標の実現に向けて、
+                        真摯に取り組んでまいります。
+                    </p>
+                </div>
+                
+                <div class="company-info">
+                    <h3>会社情報</h3>
+                    <table class="info-table">
+                        <tr>
+                            <th>会社名</th>
+                            <td>合同会社HIGHER</td>
+                        </tr>
+                        <tr>
+                            <th>設立年</th>
+                            <td>2024年</td>
+                        </tr>
+                        <tr>
+                            <th>所在地</th>
+                            <td>〒000-0000<br>東京都渋谷区○○○</td>
+                        </tr>
+                        <tr>
+                            <th>事業内容</th>
+                            <td>
+                                キャリア支援事業<br>
+                                ライフサイクルショップ運営<br>
+                                不動産仲介事業
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>営業時間</th>
+                            <td>平日 9:00～18:00</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- お問い合わせ -->
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <h2>お問い合わせ</h2>
+            <p>サービスに関するご質問やご相談は、お気軽にお問い合わせください。</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h4>お電話でのお問い合わせ</h4>
+                    <p>03-0000-0000<br>平日 9:00～18:00</p>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h4>メールでのお問い合わせ</h4>
+                    <p>info@higher-llc.co.jp<br>24時間受付</p>
+                </div>
+            </div>
+            
+            <a href="mailto:info@higher-llc.co.jp" class="btn btn-secondary">メールで問い合わせる</a>
+        </div>
+    </section>
+    
+    <!-- フッター -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>合同会社HIGHER</h4>
+                    <p>〒000-0000<br>東京都渋谷区○○○</p>
+                    <p>TEL: 03-0000-0000<br>Email: info@higher-llc.co.jp</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>サービス</h4>
+                    <ul>
+                        <li><a href="#services">キャリア支援</a></li>
+                        <li><a href="#services">ライフサイクルショップ</a></li>
+                        <li><a href="#services">不動産仲介</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>会社情報</h4>
+                    <ul>
+                        <li><a href="#about">会社概要</a></li>
+                        <li><a href="#contact">お問い合わせ</a></li>
+                        <li><a href="#">プライバシーポリシー</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 合同会社HIGHER. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // ハンバーガーメニューの制御
+        document.getElementById('hamburger').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.getElementById('nav-menu').classList.toggle('active');
+        });
+        
+        // スムーズスクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // スクロールアニメーション
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        // ヘッダーの背景変化
+        function handleHeaderBackground() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+        
+        // ナビゲーションのアクティブ状態
+        function handleActiveNavigation() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        // スクロールイベント統合
+        window.addEventListener('scroll', function() {
+            handleScrollAnimations();
+            handleHeaderBackground();
+            handleActiveNavigation();
+        });
+        
+        // ヒーロー背景スライダー
+        function initHeroSlider() {
+            const slides = document.querySelectorAll('.hero-slide');
+            const indicators = document.querySelectorAll('.hero-indicator');
+            let currentSlide = 0;
+            
+            // スライド切り替え関数
+            function changeSlide(index) {
+                // 現在のスライド・インジケーターを非アクティブに
+                slides[currentSlide].classList.remove('active');
+                indicators[currentSlide].classList.remove('active');
+                
+                // 新しいスライド・インジケーターをアクティブに
+                slides[index].classList.add('active');
+                indicators[index].classList.add('active');
+                
+                currentSlide = index;
+            }
+            
+            // 自動スライド切り替え（6秒間隔）
+            setInterval(() => {
+                const nextSlide = (currentSlide + 1) % slides.length;
+                changeSlide(nextSlide);
+            }, 6000);
+            
+            // インジケータークリックイベント
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    changeSlide(index);
+                });
+            });
+        }
+        
+        // パーティクルアニメーション（マウス追従効果）
+        function initMouseParticles() {
+            const hero = document.querySelector('.hero');
+            
+            hero.addEventListener('mousemove', (e) => {
+                const particle = document.createElement('div');
+                particle.className = 'mouse-particle';
+                particle.style.cssText = `
+                    position: absolute;
+                    width: 4px;
+                    height: 4px;
+                    background: rgba(255,255,255,0.7);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 10;
+                    left: ${e.clientX}px;
+                    top: ${e.clientY}px;
+                    animation: particleFade 2s ease-out forwards;
+                `;
+                
+                document.body.appendChild(particle);
+                
+                setTimeout(() => {
+                    particle.remove();
+                }, 2000);
+            });
+        }
+        
+        // パーティクルアニメーション CSS
+        const particleCSS = document.createElement('style');
+        particleCSS.textContent = `
+            @keyframes particleFade {
+                0% {
+                    opacity: 1;
+                    transform: scale(1) translateY(0);
+                }
+                100% {
+                    opacity: 0;
+                    transform: scale(0) translateY(-50px);
+                }
+            }
+        `;
+        document.head.appendChild(particleCSS);
+        
+        // 初期読み込み時のアニメーション
+        window.addEventListener('load', function() {
+            handleScrollAnimations();
+            initHeroSlider();
+            initMouseParticles();
+        });
+    </script>
+</body>
+</html>
